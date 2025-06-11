@@ -1,0 +1,11 @@
+.env
+deno.lock
+deno.deps.ts
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+coverage/
+.qodo
