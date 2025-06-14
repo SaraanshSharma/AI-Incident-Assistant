@@ -9,4 +9,6 @@ app.use(analyzeRouter.allowedMethods());
 app.use(logsRouter.routes());
 app.use(logsRouter.allowedMethods());
 console.log("🚀 Server running at http://localhost:8005");
-await app.listen({ port: 8005 });
+
+const PORT = Number(Deno.env.get("PORT") ?? 8000);
+await app.listen({ port: PORT });
