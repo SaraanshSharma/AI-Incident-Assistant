@@ -7,3 +7,4 @@ await client.connect(uri);
 const db = client.database("incident-ai");
 
 export const logsCollection = db.collection("logs");
+export const analysisCollection = db.collection("analysis");
