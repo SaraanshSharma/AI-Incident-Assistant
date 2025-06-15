@@ -1,5 +1,4 @@
-import { MongoClient } from "../deps.ts";
-
+import { MongoClient } from "npm:mongodb@5.6.0";
 const uri = Deno.env.get("MONGO_URI");
 
 if (!uri) {
@@ -7,16 +6,16 @@ if (!uri) {
   throw new Error("Missing MONGO_URI");
 }
 
-const client = new MongoClient();
+const client = new MongoClient(uri);
 
 try {
-  await client.connect(uri);
+  await client.connect();
 } catch (err) {
   console.error("❌ Failed to connect to MongoDB:", err.message);
   throw err;
 }
 
-const db = client.database("incident-ai");
+const db = client.db("incident-ai");
 
 export const logsCollection = db.collection("logs");
 export const analysisCollection = db.collection("analysis");
